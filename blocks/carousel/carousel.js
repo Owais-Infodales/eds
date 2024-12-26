@@ -1,25 +1,29 @@
 export default function decorate(block) {
-  console.log("placeholders ---> ", placeholders, btnNxt, btnPre);
+  // Declare the placeholders, btnNxt, and btnPre variables.
+  // Replace these placeholder values with the actual values or fetch them dynamically.
+  const placeholders = {}; // Example placeholder object
+  const btnNxt = "Next"; // Placeholder for the next button label
+  const btnPre = "Previous"; // Placeholder for the previous button label
+
   const rows = [...block.children];
-  [...block.children].forEach((row, r) => {
-    if (r == 0) {
+
+  rows.forEach((row, r) => {
+    if (r === 0) {
       const nextbtn = document.createElement("button");
-      nextbtn.classList.add("btn");
-      nextbtn.classList.add("btn-next");
+      nextbtn.classList.add("btn", "btn-next");
       const node = document.createTextNode(btnNxt);
       nextbtn.append(node);
       row.replaceWith(nextbtn);
-    } else if (r == rows.length - 1) {
+    } else if (r === rows.length - 1) {
       const prebtn = document.createElement("button");
-      prebtn.classList.add("btn");
-      prebtn.classList.add("btn-prev");
+      prebtn.classList.add("btn", "btn-prev");
       const node = document.createTextNode(btnPre);
       prebtn.append(node);
       row.replaceWith(prebtn);
     } else {
       row.classList.add("slide");
       [...row.children].forEach((col, c) => {
-        if (c == 1) {
+        if (c === 1) {
           col.classList.add("slide-text");
         }
       });
@@ -28,47 +32,39 @@ export default function decorate(block) {
 
   const slides = document.querySelectorAll(".slide");
 
-  // loop through slides and set each slides translateX
+  // Loop through slides and set each slide's translateX
   slides.forEach((slide, indx) => {
     slide.style.transform = `translateX(${indx * 100}%)`;
   });
 
-  // select next slide button
+  // Select next slide button
   const nextSlide = document.querySelector(".btn-next");
 
-  // current slide counter
+  // Current slide counter
   let curSlide = 0;
-  // maximum number of slides
-  let maxSlide = slides.length - 1;
+  // Maximum number of slides
+  const maxSlide = slides.length - 1;
 
-  // add event listener and navigation functionality
-  nextSlide.addEventListener("click", function () {
-    // check if current slide is the last and reset current slide
-    if (curSlide === maxSlide) {
-      curSlide = 0;
-    } else {
-      curSlide++;
-    }
+  // Add event listener and navigation functionality for next button
+  nextSlide.addEventListener("click", () => {
+    // Check if current slide is the last and reset current slide
+    curSlide = curSlide === maxSlide ? 0 : curSlide + 1;
 
-    //   move slide by -100%
+    // Move slides by -100%
     slides.forEach((slide, indx) => {
       slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
     });
   });
 
-  // select next slide button
+  // Select previous slide button
   const prevSlide = document.querySelector(".btn-prev");
 
-  // add event listener and navigation functionality
-  prevSlide.addEventListener("click", function () {
-    // check if current slide is the first and reset current slide to last
-    if (curSlide === 0) {
-      curSlide = maxSlide;
-    } else {
-      curSlide--;
-    }
+  // Add event listener and navigation functionality for previous button
+  prevSlide.addEventListener("click", () => {
+    // Check if current slide is the first and reset current slide to last
+    curSlide = curSlide === 0 ? maxSlide : curSlide - 1;
 
-    //   move slide by 100%
+    // Move slides by 100%
     slides.forEach((slide, indx) => {
       slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
     });

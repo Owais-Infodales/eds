@@ -1,6 +1,5 @@
 export default function decorate(block) {
   // Declare variables to avoid undefined errors
-  const placeholders = {}; // Replace this with the actual placeholder logic
   const btnNxt = 'Next'; // Placeholder for the next button label
   const btnPre = 'Previous'; // Placeholder for the previous button label
 

@@ -278,10 +278,12 @@ main .section.highlight {
     color: red;
     background-color: black;
 }
+
 .yellow {
     background-color: yellow;
     color: red;
 }
+
 .orange {
     background-color: orange;
 }

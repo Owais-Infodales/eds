@@ -3,7 +3,7 @@ import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
 async function createtableWithplaceholder(table) {
   const locale = getMetadata('locale');
   const placeholders = await fetchPlaceholders(locale);
-  const { fnamekey, header, firstName } = placeholders;
+  const { fnameKey, header, firstName } = placeholders;
 
   const authorRow = document.createElement('tr');
   const authorCol = document.createElement('th');

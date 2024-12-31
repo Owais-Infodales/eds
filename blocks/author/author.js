@@ -13,7 +13,7 @@ async function createtableWithplaceholder(table) {
 
   const firstnameRow = document.createElement('tr');
   const firstNameCol1 = document.createElement('td');
-  firstNameCol1.appendChild(document.createTextNode(fnamekey));
+  firstNameCol1.appendChild(document.createTextNode(fnameKey));
   const firstNameCol2 = document.createElement('td');
   firstNameCol2.appendChild(document.createTextNode(firstName));
   firstnameRow.append(firstNameCol1);

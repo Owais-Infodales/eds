@@ -28,7 +28,7 @@
       "id": "asset-library",
       "title": "Asset-library",
       "environemnts": ["edit", "dev"],
-      "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
+      "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html?rail=false",
       "passConfig": true,
       "passReferrer": true,
       "includePaths": ["**.docs**"],
